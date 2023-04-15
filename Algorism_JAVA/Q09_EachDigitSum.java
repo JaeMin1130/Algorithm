@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q9_EachDigitSum {
+public class Q09_EachDigitSum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
