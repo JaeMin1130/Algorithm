@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q7_PrimeNumber {
+public class Q07_PrimeNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
