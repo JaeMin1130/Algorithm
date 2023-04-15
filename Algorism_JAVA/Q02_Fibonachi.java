@@ -1,4 +1,4 @@
-public class Q2_Fibonachi {
+public class Q02_Fibonachi {
     public static void main(String[] args) {
 
         // 1번 방법
