@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q8_Factorial {
+public class Q08_Factorial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
