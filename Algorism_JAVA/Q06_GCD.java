@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q6_GCD {
+public class Q06_GCD {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
