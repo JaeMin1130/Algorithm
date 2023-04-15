@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q3_Mode {
+public class Q03_Mode {
     public static void main(String[] args) {
 
         // 숫자 입렵 받아 배열 생성
