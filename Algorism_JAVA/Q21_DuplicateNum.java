@@ -13,9 +13,8 @@ public class Q21_DuplicateNum {
             intArr[i] = Integer.parseInt(numArr[i]);
         }
 
-         
         boolean[] exist = new boolean[101];
-        
+
         // intArr[]에서 두 번 나온 값을 exist[]의 인덱스로 넣어서 exist[intArr[i]] = true
         for (int i = 0, k = 1; i < intArr.length; i++, k++) {
             for (int j = k; j < intArr.length; j++) {
@@ -23,7 +22,6 @@ public class Q21_DuplicateNum {
                     exist[intArr[i]] = true;
                     continue;
                 }
-
             }
         }
 
