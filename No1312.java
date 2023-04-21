@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class No1312 {
@@ -6,22 +7,29 @@ public class No1312 {
         Scanner scanner = new Scanner(System.in);
         String stringNum = scanner.nextLine();
         String[] numArr = stringNum.split(" ");
-        double nume = (double) (Integer.parseInt(numArr[0]));
-        double deno = (double) (Integer.parseInt(numArr[1]));
-        double div = nume / deno;
-        int n = Integer.parseInt(numArr[2]);
-
-        for (int i = 0; i < n; i++) {
-            div *= 10;
-        }
-
-        double result = div % 10;
+        BigDecimal nume = new BigDecimal(Integer.parseInt(numArr[0]));
+        BigDecimal deno = new BigDecimal(Integer.parseInt(numArr[1]));
         int count = 0;
-        while (result > 1) {
-            result -= 1;
+        int result = 1;
+        int n = Integer.parseInt(numArr[2]);
+        BigDecimal div = nume.divide(deno, n, BigDecimal.ROUND_DOWN);
+
+        
+        for (int i = 0; i < n; i++) {
+            if (count == n) {
+                break;
+            }
+            div = div.remainder(new BigDecimal(10));
+            div = div.multiply(new BigDecimal(10));
+            div = div.remainder(new BigDecimal(10));
             count++;
         }
-        System.out.println(count);
+
+        while (div.compareTo(new BigDecimal(1)) > 0) {
+            div = div.subtract(new BigDecimal(1));
+            result++;
+        }
+        System.out.println(result);
 
         scanner.close();
     }
