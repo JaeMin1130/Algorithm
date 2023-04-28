@@ -12,7 +12,7 @@ public class Main {
             s[i] = bf.readLine();
             arr[i] = s[i].toCharArray();
         }
-        for (int i = 0; i < 75; i++) {
+        for (int i = 0; i < 15; i++) {
             for (int j = 0; j < arr.length; j++) {
                 try {
                     System.out.print(arr[j][i]);
