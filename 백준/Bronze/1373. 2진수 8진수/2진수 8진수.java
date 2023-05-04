@@ -20,7 +20,7 @@ class Convert {
         int sum = 0;
         int i = 0;
         int[] arr = { 1, 2, 4 };
-        Stack<String> octal = new Stack<>();
+        StringBuilder octal = new StringBuilder();
 
         while (!stack.empty()) {
             while (i < arr.length) {
@@ -32,13 +32,11 @@ class Convert {
                     break;
 
             }
-            octal.push(String.valueOf(sum));
+            octal.append(String.valueOf(sum));
             sum = 0;
             i = 0;
         }
-        while (!octal.empty()) {
-            bw.write(octal.pop());
-        }
+        bw.write(octal.reverse().toString());
         bw.close();
     }
 }
