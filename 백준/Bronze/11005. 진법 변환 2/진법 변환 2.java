@@ -1,13 +1,15 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Stack;
 
 public class Main {
     private static int num;
     private static int div;
 
-    public static void convert(int num, int div) {
+    public static void convert(int num, int div) throws IOException {
         Stack<Integer> stack = new Stack<>();
         while (num / div != 0) {
             stack.push(num % div);
@@ -15,13 +17,15 @@ public class Main {
         }
         stack.push(num);
 
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         while (!stack.empty()) {
             if (stack.peek() >= 10) {
-                System.out.print((char) ((stack.pop() + 55)));
+                bw.write((char) ((stack.pop() + 55)));
             } else {
-                System.out.print(stack.pop());
+                bw.write(String.valueOf(stack.pop()));
             }
         }
+        bw.close();
     }
 
     public static void main(String[] args) throws IOException {
