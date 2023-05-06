@@ -15,15 +15,16 @@ public class Main {
         Y = new StringBuilder(input[1]);
     }
 
-    public static int rev(Object num) {
+    public int rev(Object num) {
         return Integer.parseInt(new StringBuilder(num.toString()).reverse().toString());
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         Main execute = new Main(br);
-        bw.write(String.valueOf(rev((rev(X) + rev(Y)))));
+
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        bw.write(String.valueOf(execute.rev((execute.rev(X) + execute.rev(Y)))));
         bw.close();
     }
 }
