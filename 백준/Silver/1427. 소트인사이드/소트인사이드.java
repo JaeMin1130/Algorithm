@@ -5,15 +5,19 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main {
+    public static void swap(char arr[], int i, int j) {
+        char store = arr[i];
+        arr[i] = arr[j];
+        arr[j] = store;
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char[] arr = br.readLine().toCharArray();
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if ((int) arr[i] < (int) arr[j]) {
-                    char store = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = store;
+                    swap(arr, i, j);
                 }
             }
         }
