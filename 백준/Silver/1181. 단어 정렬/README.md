@@ -30,4 +30,5 @@
  <p>조건에 따라 정렬하여 단어들을 출력한다.</p>
 
 ### 피드백
-나는 Comparable을 썼는데 Comparator를 람다식으로 만들어서 정렬한 코드가 인상적이었다.(jogae22)
++ 나는 Comparable을 썼는데 Comparator를 람다식으로 만들어서 정렬한 코드가 인상적이었다.(jogae22)
++ 중복 처리를 HashSet으로 처리한 코드가 인상적이었다.(blueland1998)
