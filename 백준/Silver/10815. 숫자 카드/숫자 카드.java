@@ -18,15 +18,12 @@ public class Main {
         }
 
         int num2 = Integer.parseInt(br.readLine());
-        String[] input2 = br.readLine().split(" ");
-        int[] check = new int[num2];
-        for (int i = 0; i < check.length; i++) {
-            check[i] = Integer.parseInt(input2[i]);
-        }
+        String[] check = br.readLine().split(" ");
+
         Arrays.sort(ownCard);
 
         for (int i = 0; i < check.length; i++) {
-            if (Arrays.binarySearch(ownCard, check[i]) >= 0) {
+            if (Arrays.binarySearch(ownCard, Integer.parseInt(check[i])) >= 0) {
                 bw.write(1 + " ");
             } else {
                 bw.write(0 + " ");
