@@ -33,6 +33,7 @@ public class Main {
                 bw.write(String.valueOf(val) + " ");
             }
         }
+        bw.flush();
         bw.close();
     }
 }
