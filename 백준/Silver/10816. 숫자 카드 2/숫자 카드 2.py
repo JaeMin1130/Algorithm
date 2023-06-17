@@ -6,5 +6,4 @@ M = input().rstrip()
 c = Counter(input().split())
 
 N = input().rstrip()
-result = map(lambda i : c[i], input().split())
-print(*result, sep=" ")
+print(*map(lambda i: c[i], input().split()), sep=" ")
