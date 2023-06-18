@@ -1,12 +1,19 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String[] input = br.readLine().split(" ");
+        double A = Double.parseDouble(input[0]);
+        double B = Double.parseDouble(input[1]);
+        int N = Integer.parseInt(input[2]);
         
-        Scanner scanner = new Scanner(System.in);
-        double A = scanner.nextDouble();
-        double B = scanner.nextDouble();
-        int N = scanner.nextInt();
         int count = 0;
         int result = 0;
 
@@ -16,7 +23,7 @@ public class Main {
             count++;
         }
 
-        System.out.println(result);
-        scanner.close();
+        bw.write(String.valueOf(result));
+        bw.close();
     }
 }
