@@ -14,24 +14,15 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
         String[] input_N = br.readLine().split(" ");
-        for (int i = 0; i < N; i++) {
-            if (!map.keySet().contains(input_N[i])) {
-                map.put(input_N[i], 1);
-            } else {
-                int val = map.get(input_N[i]);
-                map.put(input_N[i], ++val);
-            }
+        for (String i : input_N) {
+            map.computeIfPresent(i, (k, v) -> v + 1);
+            map.putIfAbsent(i, 1);
         }
 
         int M = Integer.parseInt(br.readLine());
         String[] input_M = br.readLine().split(" ");
-        for (int i = 0; i < M; i++) {
-            if (!map.keySet().contains(input_M[i])) {
-                bw.write("0 ");
-            } else {
-                int val = map.get(input_M[i]);
-                bw.write(String.valueOf(val) + " ");
-            }
+        for (String i : input_M) {
+            bw.write(String.valueOf(map.getOrDefault(i, 0)) + " ");
         }
         bw.flush();
         bw.close();
