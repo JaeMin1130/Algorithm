@@ -43,10 +43,10 @@ class Main {
         Queue<Point> firstQ = new LinkedList<>();
 
         for (int i = 0; i < row; i++) {
-            int[] arr = Stream.of(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+            String[] arr = br.readLine().split(" ");
             for (int j = 0; j < arr.length; j++) {
-                field[i][j] = arr[j];
-                if (arr[j] == 1) {
+                field[i][j] = Integer.parseInt(arr[j]);
+                if (field[i][j] == 1) {
                     firstQ.add(new Point(i, j));
                 }
             }
@@ -76,6 +76,7 @@ class Main {
                 list.add(nextQ);
             }
         }
+
         boolean flag = true;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -85,6 +86,7 @@ class Main {
                 }
             }
         }
+
         if (flag) {
             System.out.println(list.size() - 1);
         } else {
