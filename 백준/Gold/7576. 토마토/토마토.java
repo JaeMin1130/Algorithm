@@ -41,6 +41,7 @@ class Main {
 
         ArrayList<Queue<Point>> list = new ArrayList<>();
         Queue<Point> firstQ = new LinkedList<>();
+        int count0 = 0; // 0의 개수, 못 익힌 게 있는지 확인하는 용도
 
         for (int i = 0; i < row; i++) {
             String[] arr = br.readLine().split(" ");
@@ -48,6 +49,8 @@ class Main {
                 field[i][j] = Integer.parseInt(arr[j]);
                 if (field[i][j] == 1) {
                     firstQ.add(new Point(i, j));
+                } else if (field[i][j] == 0) {
+                    count0++;
                 }
             }
         }
@@ -68,6 +71,7 @@ class Main {
                         if (field[x][y] == 0) {
                             nextQ.add(new Point(x, y));
                             field[x][y] = 1;
+                            count0--; // 익으면 count0 - 1
                         }
                     }
                 }
@@ -76,21 +80,6 @@ class Main {
                 list.add(nextQ);
             }
         }
-
-        boolean flag = true;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (field[i][j] == 0) {
-                    flag = false;
-                    break;
-                }
-            }
-        }
-
-        if (flag) {
-            System.out.println(list.size() - 1);
-        } else {
-            System.out.println(-1);
-        }
+        System.out.println(count0 == 0 ? list.size() - 1 : -1);
     }
 }
