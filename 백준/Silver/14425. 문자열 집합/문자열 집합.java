@@ -1,11 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -18,19 +15,17 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        String[] input = new String[N];
-        for (int i = 0; i < input.length; i++) {
-            input[i] = br.readLine();
+        Map<String, Integer> wordMap = new HashMap<>();
+        for (int i = 0; i < N; i++) {
+            wordMap.put(br.readLine(), 0);
         }
 
         int count = 0;
 
         for (int i = 0; i < M; i++) {
             String target = br.readLine();
-            for (String string : input) {
-                if (target.equals(string)) {
-                    count++;
-                }
+            if (wordMap.containsKey(target)) {
+                count++;
             }
         }
         System.out.println(count);
