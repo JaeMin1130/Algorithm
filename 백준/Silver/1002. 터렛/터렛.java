@@ -31,13 +31,13 @@ public class Main {
             int r1 = input[2];
             int r2 = input[5];
 
-            if (p1.equals(p2)) {
+            if (p1.equals(p2)) { // 두 점이 같을 때 -> 일치(-1) or 포함(0)
                 if (r1 == r2) {
                     System.out.println(-1);
                 } else {
                     System.out.println(0);
                 }
-            } else {
+            } else { // 두 점이 다를 때 -> 한 점이 다른 한 원 안에 위치 or 밖에 위치
                 double r3 = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
                 int r4 = r1 + r2;
                 if (r3 > r4) {
