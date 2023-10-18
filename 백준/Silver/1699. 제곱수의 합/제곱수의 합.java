@@ -18,7 +18,8 @@ public class Main {
                 memo[input] = input;
             } else {
                 int minCount = input;
-                for (int i = 1; i * i <= input; i++) {
+                int startNum = (int) Math.sqrt(input);
+                for (int i = startNum; i >= 1; i--) {
                     int value = i * i;
                     int subproblem = dp(input - value);
                     minCount = Math.min(minCount, 1 + subproblem);
