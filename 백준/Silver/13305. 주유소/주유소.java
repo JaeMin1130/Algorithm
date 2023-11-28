@@ -8,10 +8,10 @@ public class Main{
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[] roads = Stream.of(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        long[] roads = Stream.of(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
         int[] cities = Stream.of(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         
-        int sum = 0;
+        long sum = 0L;
         for (int i = 0; i < cities.length - 1; i++) {
             int count = checkPrice(i, cities);
             int price = cities[i];
