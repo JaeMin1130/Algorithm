@@ -4,7 +4,7 @@ class Solution {
         int big = Math.max(n, m);
         int small = Math.min(n, m);
         int gcd = uclid(big, small);
-        int lcm = (big / gcd) * (small / gcd) * gcd;
+        int lcm = big * small / gcd;
         
         return new int[]{gcd, lcm};
     }
