@@ -1,19 +1,17 @@
 class Solution {
     public int[] solution(int n, int m) {
         
-        int big = Math.max(n, m);
-        int small = Math.min(n, m);
-        int gcd = uclid(big, small);
-        int lcm = big * small / gcd;
+        int gcd = uclid(n, m);
+        int lcm = n * m / gcd;
         
         return new int[]{gcd, lcm};
     }
     
-    private int uclid(int big, int small){
-        if(small == 0){
-            return big;
+    private int uclid(int n, int m){
+        if(m == 0){
+            return n;
         }else{
-            return uclid(small, big % small);
+            return uclid(m, n % m);
         }
     }
 }
