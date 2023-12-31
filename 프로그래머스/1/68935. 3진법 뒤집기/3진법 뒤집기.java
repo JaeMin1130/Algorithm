@@ -6,13 +6,14 @@ class Solution {
             n /= 3;
         }
         
-        int answer = 0;
-        int degree = 0;
-        for(int i = value.length() - 1; i >= 0; i--){
-            int num = value.charAt(i) - '0';
-            answer += num * Math.pow(3, degree++);
-        }
+//         int answer = 0;
+//         int degree = 0;
+//         for(int i = value.length() - 1; i >= 0; i--){
+//             int num = value.charAt(i) - '0';
+//             answer += num * Math.pow(3, degree++);
+//         }
         
-        return answer;
+//         return answer;
+        return Integer.parseInt(value, 3);
     }
 }
