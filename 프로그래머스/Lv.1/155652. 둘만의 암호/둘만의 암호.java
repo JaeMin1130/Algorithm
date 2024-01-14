@@ -16,9 +16,6 @@ class Solution {
                 if (!isSkipped[c - 'a']) {
                     count++;
                 }
-                if (c > 'z') {
-                    c -= 26;
-                }
             }
 
             result.append((char) c);
