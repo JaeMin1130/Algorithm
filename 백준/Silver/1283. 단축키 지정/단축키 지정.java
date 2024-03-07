@@ -1,16 +1,19 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Main {
 
     public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
+        int n = Integer.parseInt(br.readLine());
         boolean[] isUsed = new boolean[91];
         for (int i = 0; i < n; i++) {
-            StringBuilder input = new StringBuilder(sc.nextLine());
+            StringBuilder input = new StringBuilder(br.readLine());
             boolean firstCheck = false;
             int firstIdx = 0;
             for (String str : input.toString().split(" ")) {
@@ -26,22 +29,24 @@ public class Main {
                         break;
                 }
             }
-            System.out.println(input.toString());
+            bw.write(input.toString() + '\n');
         }
-        sc.close();
 
+        bw.flush();
+        bw.close();
     }
 
     static boolean checkChar(boolean[] isUsed, StringBuilder input, int idx) {
         Character c = input.charAt(idx);
-        if(c == ' ') return false;
+        if (c == ' ')
+            return false;
 
         if (!isUsed[Character.toUpperCase(c) - '0']) {
             input.replace(idx, idx + 1, "[" + c + "]");
             isUsed[Character.toUpperCase(c) - '0'] = true;
             return true;
         }
-        
+
         return false;
     }
 }
