@@ -14,7 +14,7 @@ public class Main {
 
         int k = Integer.parseInt(br.readLine());
         input = br.readLine().split(" ");
-        permutation(0, new int[k + 1], new boolean[10], false);
+        permutation(0, new int[k + 1], new boolean[10]);
 
         for (int digit : list.get(list.size() - 1)) {
             System.out.print(digit);
@@ -27,8 +27,7 @@ public class Main {
         }
     }
 
-    static void permutation(int idx, int[] arr, boolean[] isUsed, boolean flag) {
-        if (flag) return;
+    static void permutation(int idx, int[] arr, boolean[] isUsed) {
 
         if (idx == arr.length) {
             if (isTrue(input, arr)) {
@@ -38,14 +37,12 @@ public class Main {
         }
 
         for (int i = 0; i < 10; i++) {
-            if (flag) return;
             if (isUsed[i]) continue;
             arr[idx] = i;
             isUsed[i] = true;
-            permutation(idx + 1, arr.clone(), isUsed.clone(), flag);
+            permutation(idx + 1, arr.clone(), isUsed.clone());
             isUsed[i] = false;
         }
-        if (flag) return;
     }
 
     static boolean isTrue(String[] input, int[] arr) {
