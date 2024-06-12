@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.IntStream;
 
 class Solution {
@@ -32,24 +29,19 @@ class Solution {
         
         
         int[] nextMonth = new int[friends.length];
-        for(int i = 0; i < friends.length; i++){
-            for(int j = 0; j < friends.length; j++){
-                if(i == j) continue;
-                
+        for(int i = 0; i < friends.length - 1; i++){
+            for(int j = i + 1; j < friends.length; j++){
                 if(board[i][j] == board[j][i]){
                     if(presentScore[i] == presentScore[j]) continue;
                     nextMonth[presentScore[i] > presentScore[j] ? i : j]++; 
                     continue;
                 }
+                
                 nextMonth[board[i][j] > board[j][i] ? i : j]++;
             }
         }
-        for(int[] line : board){
-            System.out.println(Arrays.toString(line));
-        }
-        System.out.println(Arrays.toString(presentScore));
-        System.out.println(Arrays.toString(nextMonth));
+        
         OptionalInt answer = IntStream.of(nextMonth).max();
-        return answer.getAsInt() / 2;
+        return answer.getAsInt();
     }
 }
