@@ -1,12 +1,11 @@
 n = int(input())
 answer = 0
-gomgom = {}
+gomgom = set()
 for i in range(n):
     str = input()
     if(str == 'ENTER'):
+        answer += len(gomgom)
         gomgom.clear()
-        continue
-    if(gomgom.get(str)): continue
-    gomgom[str] = 1
-    answer += 1
-print(answer)
+    else:
+        gomgom.add(str)
+print(answer + len(gomgom))
