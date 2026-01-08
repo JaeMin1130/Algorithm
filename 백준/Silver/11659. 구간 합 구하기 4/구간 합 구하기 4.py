@@ -1,13 +1,15 @@
 import sys
-input = sys.stdin.readline
-
-N, M = map(int, input().split())
-arr = list(map(int, input().split()))
-
-prefix = [0]
-for i in range(N):
-    prefix += [arr[i] + prefix[i]]
+def problem_11659():
+    n, m = map(int, sys.stdin.readline().split())
+    nums = list(map(int, sys.stdin.readline().split()))
     
-for i in range(M):
-    start, end = list(map(int, input().split()))
-    print(prefix[end] - prefix[start - 1])
+    sum_nums = [sum(nums)]
+    for i in range(n - 1):
+        sum_nums.append(sum_nums[i] - nums[i])
+    sum_nums.append(0)
+    
+    for i in range(m):
+        start, end = map(int, sys.stdin.readline().split())
+        print(sum_nums[start - 1] - sum_nums[end])
+
+problem_11659()
